@@ -1,3 +1,4 @@
+import time
 from django.http import JsonResponse, HttpResponse
 import requests
 
@@ -14,8 +15,15 @@ def stats(request):
 
 
 def health(request):
-    response = requests.get('https://satellite.carsfast.workers.dev/')
-
     return JsonResponse({
         'status': '<insert status here>'
         })
+
+def update_satellite_data():
+    # response = requests.get('https://satellite.carsfast.workers.dev/')
+    # data = response.json()
+    print(22)
+
+while True:
+    update_satellite_data()
+    time.sleep(10)
