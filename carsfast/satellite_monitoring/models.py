@@ -1,7 +1,7 @@
 from django.db import models
 
 class Satellites(models.Model):
-    status = models.IntegerField()
+    status = models.CharField(max_length=50)
     time_since_change = models.DateTimeField()
 
 class Stats(models.Model):
