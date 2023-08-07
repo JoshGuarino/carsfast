@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-python carsfast/manage.py migrate
-python carsfast/manage.py makemigrations satellite_monitoring
+python3 carsfast/manage.py migrate
+python3 carsfast/manage.py makemigrations satellite_monitoring

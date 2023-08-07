@@ -1,4 +1,4 @@
-def max_alititude(data: list) -> int:
+def max_altitude(data: list) -> int:
     max = 0
     for record in data:
         if record.altitude > max:
@@ -12,7 +12,7 @@ def min_altidude(data: list) -> int:
             min = record.altitude
     return min
 
-def avg_alititude(data: list) -> int:
+def avg_altitude(data: list) -> int:
     total = 0
     count = 0
     for record in data:

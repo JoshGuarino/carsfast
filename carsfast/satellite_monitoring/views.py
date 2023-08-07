@@ -1,7 +1,7 @@
 import datetime
 import requests
 from django.http import JsonResponse, HttpResponse
-from satellite_monitoring.utility import max_alititude, min_altidude, avg_alititude, determine_status
+from satellite_monitoring.utility import max_altitude, min_altidude, avg_altitude, determine_status
 from satellite_monitoring.models import Satellites, Stats
 
 
@@ -13,9 +13,9 @@ def stats(request):
     five_min_ago = datetime.datetime.now() - datetime.timedelta(minutes=5)
     records = Stats.objects.filter(last_updated__range=(five_min_ago, datetime.datetime.now()))
     return JsonResponse({
-        'max_altitude': max_alititude(records), 
+        'max_altitude': max_altitude(records), 
         'min_altitude': min_altidude(records), 
-        'avg_altitude': avg_alititude(records)
+        'avg_altitude': avg_altitude(records)
     })
 
 
@@ -37,4 +37,4 @@ def update(request):
     ).save()
     satellite.status = determine_status(records)
     satellite.save()
-    return JsonResponse({'message': 'successfully udpated satellite data'})
+    return JsonResponse({'message': 'successfully updated satellite data'})
